@@ -71,10 +71,10 @@ sconv_32x32_splitk4_asm:
 		call_convention = -1
 		runtime_loader_kernel_symbol = 0
 	.end_amd_kernel_code_t
-    
-	//sconv-32x32-splitk4- kernel 
 
-	
+	//sconv-32x32-splitk4- kernel
+
+
 	s_mov_b32 s8, s7                                           // 000000003F00: BE880007
 	s_load_dwordx2 s[8:9], s[4:5], 0x8                         // 000000003F04: C0060202 00000008
 	s_load_dwordx2 s[10:11], s[4:5], 0x10                      // 000000003F0C: C0060282 00000010
@@ -153,8 +153,8 @@ sconv_32x32_splitk4_asm:
 	v_mov_b32_e32 v78, 0                                       // 000000004074: 7E9C0280
 	v_mov_b32_e32 v79, 0                                       // 000000004078: 7E9E0280
 	s_mov_b32 s26, 0                                           // 00000000407C: BE9A0080
-    s_sub_u32 s18,  s18, 16     
-    
+    s_sub_u32 s18,  s18, 16
+
 label_major_loop_begin:
 	s_mov_b64 s[36:37], s[22:23]                               // 000000004080: BEA40116
 	global_load_dwordx4 v[24:27], v[2:3], s[20:21]             // 000000004084: DC5C8000 18140002
@@ -530,10 +530,10 @@ label_major_loop_begin:
 	v_fma_f32 v79, v39, v71, v79                               // 000000004AC8: D1CB004F 053E8F27
 	s_add_u32 s26, s26, 16                                     // 000000004AD0: 801A901A
 	s_cmp_ge_u32 s26, s18                                      // 000000004AD4: BF09121A
-    
-    //s_branch     label_end 
+
+    //s_branch     label_end
 	s_cbranch_scc0 label_major_loop_begin                      // 000000004AD8: BF84FD69
-    
+
 	s_mov_b64 s[36:37], s[22:23]                               // 000000004ADC: BEA40116
 	global_load_dwordx4 v[24:27], v[2:3], s[20:21]             // 000000004AE0: DC5C8000 18140002
 	s_add_u32 s20, s20, s33                                    // 000000004AE8: 80142114
@@ -950,4 +950,3 @@ label_major_loop_begin:
 	global_store_dwordx4 v[6:7], v[64:67], s[12:13]            // 000000005634: DC7C8000 000C4006
 label_end:
 	s_endpgm                                                   // 00000000563C: BF810000
-    
